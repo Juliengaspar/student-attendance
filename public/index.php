@@ -1,5 +1,6 @@
 <?php
-
+const PUBLIC_PATH = __DIR__;;
+const VIEWS_DIR=PUBLIC_PATH.'/../';
 include '../db/queries.php';
 
 $title = '';
@@ -9,17 +10,17 @@ switch ($_SERVER['REQUEST_URI']) {
     case '':
     case '/':
         $title = 'Page d’accueil';
-        include '../views/home.php';
+        include VIEWS_DIR .'/home.php';
         break;
     case '/presences':
         $title = 'Prendre les présences';
-        include '../views/attendances/index.php';
+        include VIEWS_DIR .'/attendances/index.php';
         break;
     case '/etudiants':
         $title = 'Tous les étudiants';
-        include '../views/students/index.php';
+        include VIEWS_DIR .'/students/index.php';
         break;
     default:
         $title = '404';
-        include '../views/404.php';
+        include VIEWS_DIR .'/404.php';
 }
