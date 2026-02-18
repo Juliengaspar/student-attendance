@@ -1,7 +1,8 @@
 <?php
-   /* const PUBLIC_PATH = PUBLIC_PATH??__DIR__;
-    const APP_PATH = PUBLIC_PATH . '/..';
-    const VENDOR_PATH = PUBLIC_PATH . '/../vendor';
+
+/* const PUBLIC_PATH = PUBLIC_PATH??__DIR__;
+ const APP_PATH = PUBLIC_PATH . '/..';
+ const VENDOR_PATH = PUBLIC_PATH . '/../vendor';
 
 const VIEWS_DIR = PUBLIC_PATH . '/../views';
 
@@ -29,16 +30,14 @@ $charset = env('DB_CHARSET');
 $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset";
 */
 
-
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES => false,
 ];
 
-
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    echo 'Erreur de connexion : ' . $e->getMessage();
+    echo 'Erreur de connexion : '.$e->getMessage();
 }
