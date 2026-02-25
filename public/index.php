@@ -8,7 +8,7 @@ const VIEWS_DIR = PUBLIC_PATH.'/../views';
 
 require VENDOR_PATH.'/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(APP_PATH); // programation orienter obj, ceci permet de crée des class , scope ,fonction, vazriables accecibel entres elle sauf si on leurs dis en exterieur
-$dotenv->load();
+$dotenv->load();//crée un obj avec le chemin ou on dois trouver le chemin pour crée un projet
 include '../db/queries.php';
 
 $title = '';
@@ -27,6 +27,7 @@ switch ($_SERVER['REQUEST_URI']) {
         $title = 'Tous les étudiants';
         include VIEWS_DIR.'/students/index.php';
         break;
+
     default:
         $title = '404';
         include VIEWS_DIR.'/404.php';

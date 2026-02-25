@@ -11,6 +11,7 @@ require VENDOR_PATH . '/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(APP_PATH);//programation orienter obj, ceci permet de crée des class , scope ,fonction, vazriables accecibel entres elle sauf si on leurs dis en exterieur
 $dotenv->load();
 */
+/*
 $host = $_ENV['DB_HOST'];
 $db_name = $_ENV['DB_DATABASE'];
 $db_port = $_ENV['DB_PORT'];
@@ -18,17 +19,18 @@ $user = $_ENV['DB_USERNAME'];
 $pass = $_ENV['DB_PASSWORD'];
 $charset = $_ENV['DB_CHARSET'];
 $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset";
+*/
+ /* même chose sauf avec la fonction dans helpers*/
 
-/*
- * même chose sauf avec la fonction dans helpers
 $host = env('DB_HOST');
 $db_name = env('DB_DATABASE');
 $db_port = env('DB_PORT');
 $user = env('DB_USERNAME');
 $pass = env('DB_PASSWORD');
 $charset = env('DB_CHARSET');
-$dsn = "mysql:host=$host;dbname=$db_name;charset=$charset";
-*/
+
+$dsn = "mysql:host=$host;port=$db_port;dbname=$db_name;charset=$charset";
+
 
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

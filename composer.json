@@ -1,10 +1,15 @@
 {
+  "name": "Julien/student-attendance",
+  "description": "A small app for managing the attendances of students",
+  "type": "project",
   "require": {
     "php": "^8.3",
     "vlucas/phpdotenv": "^5.6"
   },
   "autoload": {
-    "files": ["toby/helpers"]
+    "files": [
+      "toby/helpers/functions.php"
+    ]
   },
   "require-dev": {
     "laravel/pint": "^1.27"

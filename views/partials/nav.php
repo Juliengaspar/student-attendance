@@ -8,5 +8,6 @@
         </li>
         <li><a class="<?php echo $_SERVER['REQUEST_URI'] == '/etudiants' ? 'active' : '' ?>"
                href="/etudiants">Étudiants</a></li>
+
     </ul>
 </nav>

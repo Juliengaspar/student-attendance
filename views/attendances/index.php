@@ -21,8 +21,8 @@
 </main>
 
 
-<?php include VIEWS_DIR.'/views/partials/nav.php' ?>
+<?php include VIEWS_DIR.'/partials/nav.php' ?>
 
 <script defer src="/assets/js/main.js"></script>
 
-<?php include VIEWS_DIR.'views/partials/footer.php' ?>
+<?php include VIEWS_DIR.'/partials/footer.php' ?>

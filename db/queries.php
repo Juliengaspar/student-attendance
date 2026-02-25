@@ -43,3 +43,4 @@ FROM students WHERE first_name LIKE '%a%'")->fetch();
         echo $e->getMessage();
     }
 }
+
