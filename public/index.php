@@ -11,16 +11,22 @@ $dotenv->load();//crée un obj avec le chemin ou on dois trouver le chemin pour 
 switch ($_SERVER['REQUEST_URI']) {
     case '':
     case '/':
-    require CONTROLLERS_PATH . '/HomeController.php';
-    index();
+    //require CONTROLLERS_PATH . '/HomeController.php';
+//version statique
+    Attendances\Controllers\HomeController::index();
+
+    /*Appel de la méthide index via une instance
+    * ne marche que si la methode n'est pas déclarer statique
+    //version dynamique
+    $controller = new HomeController();
+    $controller->index();
+    */
         break;
     case '/presences':
-        require CONTROLLERS_PATH.'/AttendanceController.php';
-        index();
+        Attendances\Controllers\AttendanceController::index();
         break;
     case '/etudiants':
-        require CONTROLLERS_PATH.'/StudentController.php';
-        index();
+        Attendances\Controllers\StudentController::index();
         break;
 
     default:

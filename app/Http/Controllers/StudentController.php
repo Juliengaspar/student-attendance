@@ -1,12 +1,16 @@
 <?php
+namespace Attendances\Controllers;
 
-function index()
+class StudentController
 {
-    require MODELS_PATH . '/Student.php';
-    $title = 'Tous les étudiants';
-    $students = all();
+   static function index():void
+    {
+        require MODELS_PATH . '/Student.php';
+        $title = 'Tous les étudiants';
+        $students = all();
 
-    include VIEWS_PATH.'/students/index.blade.php';
-    view('student.index', compact('title', 'students'));
+        include VIEWS_PATH.'/students/index.blade.php';
+        view('student.index', compact('title', 'students'));
 
+    }
 }
