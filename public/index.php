@@ -11,7 +11,7 @@ $dotenv->load();//crée un obj avec le chemin ou on dois trouver le chemin pour 
 switch ($_SERVER['REQUEST_URI']) {
     case '':
     case '/':
-    require CONTROLLERS_PATH.'/IndexController.php';
+    require CONTROLLERS_PATH . '/HomeController.php';
     index();
         break;
     case '/presences':

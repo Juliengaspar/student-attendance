@@ -1,4 +1,7 @@
 <?php
+
+use JetBrains\PhpStorm\NoReturn;
+
 if (! function_exists('dd')) {
     function dd(...$var): void
     {
@@ -13,6 +16,7 @@ if (! function_exists('env')) {
         return $_ENV[$key] ?? $default;
     }
 }
+
 if (! function_exists('db_connexion')) {
     function db_connexion(): PDO|null
     {
@@ -38,5 +42,14 @@ if (! function_exists('db_connexion')) {
         } catch (PDOException $e) {
             echo 'Erreur de connexion : '.$e->getMessage();
         }
+    }
+}
+
+if (! function_exists('view')) {
+    function view(string $name= '', array $data = []) :void
+    {
+        $name = str_replace('.','/',$name); //Remplacer les .par les
+        extract($data);//tous les variable correspond a la table data , d'autre variable a été créé
+        include VIEWS_PATH . '/'. $name . '.blade.php';
     }
 }
