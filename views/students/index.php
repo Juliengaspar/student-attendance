@@ -1,16 +1,13 @@
-<?php include VIEWS_DIR.'/partials/head.php' ?>
-
-<?php global $title ?>
+<?php include VIEWS_PATH.'/partials/head.php' ?>
 <main class="page-main">
-    <h1><?php echo $title ?></h1>
-    <?php $students = getAllStudents(); ?>
+    <h1><?= $title ?></h1>
 
     <?php if (count($students) > 0) { ?>
         <ol>
-            <?php foreach (getAllStudents() as $student) { ?>
+            <?php foreach ($students as $student) { ?>
                 <li>
-                    <?php echo $student['first_name'] ?>
-                    &nbsp;<?php echo $student['last_name'] ?>
+                    <?= $student['first_name'] ?>
+                    &nbsp;&nbsp;<?= $student['last_name'] ?>
                 </li>
             <?php } ?>
         </ol>
@@ -21,7 +18,7 @@
 </main>
 
 
-<?php include VIEWS_DIR.'/partials/nav.php' ?>
+<?php include VIEWS_PATH.'/partials/nav.php' ?>
 
 
-<?php include VIEWS_DIR.'/partials/footer.php' ?>
+<?php include VIEWS_PATH.'/partials/footer.php' ?>
