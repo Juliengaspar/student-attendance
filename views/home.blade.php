@@ -1,10 +1,9 @@
-<?php view('partials/head', compact('title')); ?>
+<?php include_once VIEWS_PATH . '/partials/head.blade.php' ?>
+
 <main class="page-main">
     <h1><?= $title ?></h1>
 </main>
 
+<?php include_once VIEWS_PATH . '/partials/nav.blade.php' ?>
 
-<?php view('/partials/nav') ?>
-
-
-<?php view('partials/footer') ?>
+<?php include_once VIEWS_PATH . '/partials/footer.blade.php' ?>

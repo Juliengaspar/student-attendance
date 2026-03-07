@@ -1,16 +1,44 @@
 <?php
-
-
-function all(): ?array
+namespace App\Models;
+class Student
 {
-    try {
-        $pdo = db_connexion();
+    static function getAllStudents(): ?array
+    {
+        try {
+            //global PDO ==>
 
-        return $pdo->query('SELECT id, matricule, first_name, last_name, birth_date, profile_photo, email FROM students WHERE deleted_at IS NULL ORDER BY last_name, first_name')->fetchAll();
+            return db_connection()->query('SELECT id, matricule, first_name, last_name, birth_date, profile_photo, email FROM students WHERE deleted_at IS NULL ORDER BY last_name, first_name')->fetchAll();
 
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return null;
     }
 
-    return null;
+    function getAllStudentWhereFirstNameContainsA(): ?array
+    {
+        try {
+            //global PDO ==>
+
+            return db_connection()->query("SELECT count(*)
+                                 FROM students")->fetch();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return null;
+    }
+
+
+    function getStudent()
+    {
+        try {
+            //global PDO ==>
+            return db_connection()->query("SELECT *
+FROM students WHERE first_name LIKE '%a%'")->fetch();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

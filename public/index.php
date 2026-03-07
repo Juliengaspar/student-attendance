@@ -2,7 +2,7 @@
 require __DIR__ . '/../bootstrap/app.php';//ici __DIR__==> publix on luis donner acced aux fichier a app.php
 
 
-require VENDOR_PATH.'/autoload.php';
+require VENDOR_PATH . '/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(ROOT_PATH); // programation orienter obj, ceci permet de crée des class , scope ,fonction, vazriables accecibel entres elle sauf si on leurs dis en exterieur
 $dotenv->load();//crée un obj avec le chemin ou on dois trouver le chemin pour crée un projet
 //include '../db/queries.php';
@@ -13,8 +13,7 @@ switch ($_SERVER['REQUEST_URI']) {
     case '/':
     //require CONTROLLERS_PATH . '/HomeController.php';
 //version statique
-    Attendances\Controllers\HomeController::index();
-
+    \App\Http\Controllers\PageController::home();
     /*Appel de la méthide index via une instance
     * ne marche que si la methode n'est pas déclarer statique
     //version dynamique
@@ -23,10 +22,10 @@ switch ($_SERVER['REQUEST_URI']) {
     */
         break;
     case '/presences':
-        Attendances\Controllers\AttendanceController::index();
+        \App\Http\Controllers\AttendanceController::index();
         break;
     case '/etudiants':
-        Attendances\Controllers\StudentController::index();
+        \App\Http\Controllers\StudentController::index();
         break;
 
     default:
