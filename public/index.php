@@ -1,34 +1,34 @@
 <?php
+require __DIR__ . '/../bootstrap/app.php';//ici __DIR__==> publix on luis donner acced aux fichier a app.php
 
-require '../vendor/autoload.php';
-const PUBLIC_PATH = __DIR__;
-const APP_PATH = PUBLIC_PATH.'/..';
-const VENDOR_PATH = PUBLIC_PATH.'/../vendor';
-const VIEWS_DIR = PUBLIC_PATH.'/../views';
 
-require VENDOR_PATH.'/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(APP_PATH); // programation orienter obj, ceci permet de crée des class , scope ,fonction, vazriables accecibel entres elle sauf si on leurs dis en exterieur
+require VENDOR_PATH . '/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(ROOT_PATH); // programation orienter obj, ceci permet de crée des class , scope ,fonction, vazriables accecibel entres elle sauf si on leurs dis en exterieur
 $dotenv->load();//crée un obj avec le chemin ou on dois trouver le chemin pour crée un projet
-include '../db/queries.php';
+//include '../db/queries.php';
 
-$title = '';
 
 switch ($_SERVER['REQUEST_URI']) {
     case '':
     case '/':
-        $title = 'Page d’accueil';
-        include VIEWS_DIR.'/home.php';
+    //require CONTROLLERS_PATH . '/HomeController.php';
+//version statique
+    \App\Http\Controllers\PageController::home();
+    /*Appel de la méthide index via une instance
+    * ne marche que si la methode n'est pas déclarer statique
+    //version dynamique
+    $controller = new HomeController();
+    $controller->index();
+    */
         break;
     case '/presences':
-        $title = 'Prendre les présences';
-        include VIEWS_DIR.'/attendances/index.php';
+        \App\Http\Controllers\AttendanceController::index();
         break;
     case '/etudiants':
-        $title = 'Tous les étudiants';
-        include VIEWS_DIR.'/students/index.php';
+        \App\Http\Controllers\StudentController::index();
         break;
 
     default:
         $title = '404';
-        include VIEWS_DIR.'/404.php';
+        include VIEWS_PATH.'/404.php';
 }
