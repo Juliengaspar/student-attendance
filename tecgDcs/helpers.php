@@ -51,16 +51,24 @@ if (!function_exists('db_connection')) {
     }
 }
 
-if (! function_exists('view')) {
+if (!function_exists('view')) {
     function view(string $name, array $data = []): void
     {
-        $name = str_replace('.','/',$name); //Remplacer les .par les /
+        $name = str_replace('.', '/', $name); //Remplacer les .par les /
         $view = VIEWS_PATH . '/' . $name . '.blade.php';
         if (file_exists($view)) {
             extract($data);//tous les variable correspond a la table data , d'autre variable a été créé
             include $view;
-        }else{
+        } else {
             die('La vue n’existe pas');
         }
     }
+}
+if (!function_exists('csrf_token')) {
+    function csrf_token(): string
+    {
+        return $_SESSION['token'] = bin2hex(random_bytes(32));//sequance de octet aleatoire , valeur numerqiue qui vas etres traduite en chaine apres on vas l'embaler dans bin2hex ==> prend une sequance binaire vers to une chaine hexadecimal
+        //Calculer le token et le return dirrectement apres 
+    }
+
 }

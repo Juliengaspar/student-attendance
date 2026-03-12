@@ -9,10 +9,11 @@
   },
   "autoload": {
     "files": [
-      "toby/helpers.php"
+      "tecgDcs/helpers.php"
     ],
     "psr-4": {
-      "App\\": "app/"
+      "App\\": "app/",
+      "Tecgdcs\\": "tecgDcs/classes/"
     }
   },
   "require-dev": {
