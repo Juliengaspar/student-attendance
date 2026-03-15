@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 
- class AttendanceController
+class AttendanceController
 {
-     public function index(): void
+    public function index(): void
     {
         $title = 'Prendre les présences';
         $students = Student::getAllStudents();
+
         view(
             'attendances.index',
             compact('title', 'students')

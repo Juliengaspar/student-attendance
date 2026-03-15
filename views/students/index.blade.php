@@ -16,6 +16,7 @@
     <p>Mais où sont-ils&nbsp;?</p>
     <?php endif; ?>
 
+
 </main>
 
 <?php include VIEWS_PATH . '/partials/nav.blade.php' ?>

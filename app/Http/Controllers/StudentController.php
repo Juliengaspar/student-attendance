@@ -10,6 +10,7 @@ class StudentController
     {
         $title = 'Tous les étudiants';
         $students = Student::getAllStudents();
+
         view(
             'students.index',
             compact('title', 'students')
@@ -18,7 +19,8 @@ class StudentController
 
     public function create(): void
     {
-        $title = 'Crée un nouvel etudiant';
+        $title = 'Ajouter un étudiant';
+
         view(
             'students.create',
             compact('title')
@@ -27,12 +29,15 @@ class StudentController
 
     public function store(): void
     {
-        if (!isset($_SESSION['token']) || !isset($_REQUEST['_token'])) {
-            die();
+        if (!isset($_REQUEST['_token'], $_SESSION['token'])) {
+            die('bad request');
         }
-        if ($_SESSION['token'] !== $_REQUEST['_token']) {
-            die();
-        }//savoir grepher sur different route pour chaqu'un qui'il
-        echo 'ok';
+
+        if ($_REQUEST['_token'] !== $_SESSION['token']) {
+            die('unauthorized');
+        };
+        // Stocker un étudiant en DB
+        // Demander au navigateur de se rediriger vers la page de résultat souhaitée
+        die('enregistré');
     }
 }

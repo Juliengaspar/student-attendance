@@ -44,4 +44,28 @@ return [
             'index',
         ],
     ],
+    [
+        'url' => '/teachers',
+        'method' => 'GET',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'index',
+        ],
+    ],
+    [
+        'url' => '/teachers/create',
+        'method' => 'GET',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'create',
+        ],
+    ],
+    [
+        'url' => '/teachers',
+        'method' => 'POST',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'store',
+        ],
+    ],
 ];
