@@ -65,10 +65,10 @@ if (!function_exists('view')) {
     }
 }
 if (!function_exists('csrf_token')) {
-    function csrf_token(): string
+    function csrf_token(int $length = 32): string//longeur par default de 32 byte
     {
-        return $_SESSION['token'] = bin2hex(random_bytes(32));//sequance de octet aleatoire , valeur numerqiue qui vas etres traduite en chaine apres on vas l'embaler dans bin2hex ==> prend une sequance binaire vers to une chaine hexadecimal
-        //Calculer le token et le return dirrectement apres 
+        return $_SESSION['token'] = bin2hex(random_bytes($length));//retourne une valeurs aleatoire de valeur et de nombre de octets, pour que la session commence , il faux comprendre quand un utilisateur utilise un ordinateur ==> session_start()
+        //sequance de octet aleatoire , valeur numerqiue qui vas etres traduite en chaine apres on vas l'embaler dans bin2hex ==> prend une sequance binaire vers to une chaine hexadecimal
+        //Calculer le token et le return dirrectement apres
     }
-
 }

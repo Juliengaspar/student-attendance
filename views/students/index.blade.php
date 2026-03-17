@@ -8,16 +8,18 @@
             <?php foreach ($students as $student): ?>
         <li>
                 <?= $student['first_name'] ?>
-                <?= $student['last_name'] ?>
+            &nbsp;<?= $student['last_name'] ?>
         </li>
         <?php endforeach; ?>
     </ol>
     <?php else: ?>
     <p>Mais où sont-ils&nbsp;?</p>
     <?php endif; ?>
-
-
+    <div>
+        <a href="/etudiants/create" class="action">Ajouter un étudiant</a>
+    </div>
 </main>
+
 
 <?php include VIEWS_PATH . '/partials/nav.blade.php' ?>
 

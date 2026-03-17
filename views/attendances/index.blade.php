@@ -21,7 +21,7 @@
 
 
 <?php include_once VIEWS_PATH . '/partials/nav.blade.php' ?>
-
+<script defer src="/assets/js/main.js"></script>
 
 
 <?php include_once VIEWS_PATH . '/partials/footer.blade.php' ?>

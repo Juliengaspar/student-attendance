@@ -29,10 +29,14 @@ class StudentController
 
     public function store(): void
     {
+        //token && session
+        //tester si token est bien defini dans les 2 cas
+        //si session est egale a token OK
         if (!isset($_REQUEST['_token'], $_SESSION['token'])) {
             die('bad request');
         }
 
+        //si session n’est pas egale a token alors erreurs
         if ($_REQUEST['_token'] !== $_SESSION['token']) {
             die('unauthorized');
         };

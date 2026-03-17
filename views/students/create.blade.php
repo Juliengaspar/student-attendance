@@ -2,36 +2,38 @@
 <main class="page-main">
     <h1><?= $title ?></h1>
     <form action="/etudiants" method="post" enctype="multipart/form-data">
-        <!-- Equivalent to... -->
-        <input type="hidden" name="_token" value="<?= csrf_token() ?>"/>
+        <input type="hidden" name="_token" value="<?= csrf_token() ?>">
+        <!--csrf-token ==> eviter des hack precotion contre des tentative de rentrer dans le site web-->
         <div>
-            <label for="family_name">Nom de famille <sup>*</sup></label>
-            <input type="text" name="family_name" id="family_name" required>
+            <label for="first-name">Prénom <sup>*</sup></label>
+            <input id="first-name" name="first_name" type="text" placeholder="Jean" required>
         </div>
         <div>
-            <label for="first_name">Prénom<sup>*</sup></label>
-            <input type="text" name="first_name" id="first_name" required>
+            <label for="family-name">Nom de famille <sup>*</sup></label>
+            <input id="family-name" name="last_name" type="text" placeholder="Valjean" required>
         </div>
         <div>
-            <label for="matricule">Matricule<sup>*</sup></label>
-            <input type="text" name="matricule" id="matricule" required>
+            <label for="email">Email <sup>*</sup></label>
+            <input id="email" name="email" type="email" placeholder="jean.valjean@miserables.fr" required>
         </div>
         <div>
-            <label for="email">Email<sup>*</sup></label>
-            <input type="email" name="email" id="email" required>
+            <label for="matricule">Matricule <sup>*</sup></label>
+            <input id="matricule" name="matricule" type="text" placeholder="tecg01234" required>
         </div>
         <div>
-            <label for="birth_date">Date de naissance</label>
-            <input type="date" name="birth_date" id="birth_date">
+            <label for="birth-date">Date de naissance</label>
+            <input id="birth-date" name="birth_date" type="date">
         </div>
         <div>
-            <label for="profile_photo">Photo de profile <small>jpeg ou png, 2mo maximum </small></label>
-            <input type="file" name="profile_photo" id="profile_photo">
+            <label for="profile-photo">Photo</label>
+            <input id="profile-photo" name="profile_photo" type="file">
         </div>
-        <button type="submit">Enregistrer l'etudiants</button>
+        <div>
+            <button type="submit">Enregistrer l’étudiant</button>
+        </div>
     </form>
-
 </main>
+
 
 <?php include VIEWS_PATH . '/partials/nav.blade.php' ?>
 
