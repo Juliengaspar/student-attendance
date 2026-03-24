@@ -1,5 +1,10 @@
 <?php
+
 namespace App\Models;
+
+use PDO;
+use PDOException;
+
 class Student
 {
     static function getAllStudents(): ?array
@@ -14,6 +19,28 @@ class Student
         }
         return null;
     }
+
+    public static function find(int $id)
+    {
+        $sql = <<<SQL
+                SELECT * 
+                FROM students
+                WHERE id = :id
+SQL;
+
+
+        try {
+            $pdo = db_connection();
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        return null;
+    }
+
 
     function getAllStudentWhereFirstNameContainsA(): ?array
     {
@@ -33,7 +60,6 @@ class Student
     function getStudent()
     {
         try {
-            //global PDO ==>
             return db_connection()->query("SELECT *
 FROM students WHERE first_name LIKE '%a%'")->fetch();
 

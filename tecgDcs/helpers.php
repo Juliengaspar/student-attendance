@@ -35,8 +35,13 @@ if (!function_exists('db_connection')) {
         $dsn = "$connection:host=$host;port=$db_port;dbname=$db_name;charset=$charset";
 
         $options = [
+            //PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            ////PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,//ça à effetque lorsque on fais un fetch pour ==> c'est un tableaux asscociatif
+            //PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_BOTH,//les 2 formats sois en-> ou en ['']
+            ////PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,//format en ->
+            //PDO::ATTR_EMULATE_PREPARES => false,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
             PDO::ATTR_EMULATE_PREPARES => false,
         ];
 

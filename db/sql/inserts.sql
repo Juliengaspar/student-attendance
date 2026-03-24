@@ -122,32 +122,32 @@ VALUES ('L20'),
        ('LPO5');
 
 
-INSERT INTO students (matricule, last_name, first_name, email)
-VALUES ('7340109162', 'Baaroun', 'Alyssa', 'alyssa.baaroun@student.hepl.be'),
-       ('7340132062', 'Bibbiano', 'Chiara', 'chiara.bibbiano@student.hepl.be'),
-       ('7340136767', 'Brohée', 'Maé', 'mae.brohee@student.hepl.be'),
-       ('7340131981', 'Cakir', 'Sükeyne-Havin', 'sukeyna.cakir@student.hepl.be'),
-       ('7340072103', 'Claes', 'Samantha', 'samantha.claes@student.hepl.be'),
-       ('7340106511', 'Coban', 'Seren', 'seren.coban@student.hepl.be'),
-       ('7340108069', 'de Freitas', 'Isabella', 'isabella.defreitas@student.hepl.be'),
-       ('7340112347', 'Dida', 'Amina', 'amina.dida@student.hepl.be'),
-       ('7340093429', 'Gaspar', 'Julien', 'julien.gaspar@student.hepl.be'),
-       ('7340091657', 'Gerard', 'Dimitri', 'dimitri.gerard@student.hepl.be'),
-       ('7340068167', 'Gurrera', 'Laura', 'laura.gurrera@student.hepl.be'),
-       ('7340112354', 'Haddaji', 'Maroia', 'maroia.haddaji@student.hepl.be'),
-       ('7340108376', 'Jacquemin-Fanti', 'Marie', 'marie.jacquemin-fanti@student.hepl.be'),
-       ('7340068554', 'Keza', 'Jennifer', 'jennifer.keza@student.hepl.be'),
-       ('7340124049', 'Ledina', 'Gabriel', 'gabriel.ledina@student.hepl.be'),
-       ('7340128873', 'Lèbre', 'Eliott', 'eliott.lebre@student.hepl.be'),
-       ('7340127414', 'Malchair', 'Laurine', 'laurine.malchair@student.hepl.be'),
-       ('7340091814', 'Meex', 'Valentin', 'valentin.meex@student.hepl.be'),
-       ('7340046321', 'Meziani', 'Wassila', 'wassila.meziani@student.hepl.be'),
-       ('7340115392', 'Okulska', 'Edyta', 'edyta.okulska@student.hepl.be'),
-       ('7340083324', 'Onysiak', 'Aleksander', 'aleksander.onysiak@student.hepl.be'),
-       ('7340108491', 'Pennartz', 'Dorian', 'dorian.pennartz@student.hepl.be'),
-       ('7340111263', 'Perpète', 'Noah', 'noah.perpete@student.hepl.be'),
-       ('7340135849', 'Rabhioui', 'Assia', 'assia.rabhioui@student.hepl.be'),
-       ('7340106269', 'Schmitz', 'Eline', 'eline.schmitz@student.hepl.be');
+INSERT INTO students (matricule, last_name, first_name, email, birth_date, profile_photo)
+VALUES ('7340109162', 'Baaroun', 'Alyssa', 'alyssa.baaroun@student.hepl.be', NULL, NULL),
+       ('7340132062', 'Bibbiano', 'Chiara', 'chiara.bibbiano@student.hepl.be', NULL, NULL),
+       ('7340136767', 'Brohée', 'Maé', 'mae.brohee@student.hepl.be', NULL, NULL),
+       ('7340131981', 'Cakir', 'Sükeyne-Havin', 'sukeyna.cakir@student.hepl.be', NULL, NULL),
+       ('7340072103', 'Claes', 'Samantha', 'samantha.claes@student.hepl.be', NULL, NULL),
+       ('7340106511', 'Coban', 'Seren', 'seren.coban@student.hepl.be', NULL, NULL),
+       ('7340108069', 'de Freitas', 'Isabella', 'isabella.defreitas@student.hepl.be', NULL, NULL),
+       ('7340112347', 'Dida', 'Amina', 'amina.dida@student.hepl.be', NULL, NULL),
+       ('7340093429', 'Gaspar', 'Julien', 'julien.gaspar@student.hepl.be', NULL, NULL),
+       ('7340091657', 'Gerard', 'Dimitri', 'dimitri.gerard@student.hepl.be', NULL, NULL),
+       ('7340068167', 'Gurrera', 'Laura', 'laura.gurrera@student.hepl.be', NULL, NULL),
+       ('7340112354', 'Haddaji', 'Maroia', 'maroia.haddaji@student.hepl.be', NULL, NULL),
+       ('7340108376', 'Jacquemin-Fanti', 'Marie', 'marie.jacquemin-fanti@student.hepl.be', NULL, NULL),
+       ('7340068554', 'Keza', 'Jennifer', 'jennifer.keza@student.hepl.be', NULL, NULL),
+       ('7340124049', 'Ledina', 'Gabriel', 'gabriel.ledina@student.hepl.be', NULL, NULL),
+       ('7340128873', 'Lèbre', 'Eliott', 'eliott.lebre@student.hepl.be', NULL, NULL),
+       ('7340127414', 'Malchair', 'Laurine', 'laurine.malchair@student.hepl.be', NULL, NULL),
+       ('7340091814', 'Meex', 'Valentin', 'valentin.meex@student.hepl.be', NULL, NULL),
+       ('7340046321', 'Meziani', 'Wassila', 'wassila.meziani@student.hepl.be', NULL, NULL),
+       ('7340115392', 'Okulska', 'Edyta', 'edyta.okulska@student.hepl.be', NULL, NULL),
+       ('7340083324', 'Onysiak', 'Aleksander', 'aleksander.onysiak@student.hepl.be', NULL, NULL),
+       ('7340108491', 'Pennartz', 'Dorian', 'dorian.pennartz@student.hepl.be', NULL, NULL),
+       ('7340111263', 'Perpète', 'Noah', 'noah.perpete@student.hepl.be', NULL, NULL),
+       ('7340135849', 'Rabhioui', 'Assia', 'assia.rabhioui@student.hepl.be', NULL, NULL),
+       ('7340106269', 'Schmitz', 'Eline', 'eline.schmitz@student.hepl.be', NULL, NULL);
 
 INSERT INTO student_group(group_id, student_id)
 VALUES ((SELECT id FROM `groups` WHERE code LIKE '%202%'), (SELECT id FROM students WHERE first_name LIKE 'Alyssa')),
@@ -356,6 +356,4 @@ INSERT INTO school_info (phone, curren_school_year_Id)
 VALUES (' +32 (0)4 279 75 00', 1);
 
 COMMIT;
-
-
 ;

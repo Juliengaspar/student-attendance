@@ -131,7 +131,7 @@ CREATE TABLE students
     matricule     VARCHAR(100) NOT NULL UNIQUE,
     first_name    VARCHAR(120) NOT NULL,
     last_name     VARCHAR(120) NOT NULL,
-    birth_date    DATE              DEFAULT (DATE_SUB(CURRENT_DATE(), INTERVAL 18 YEAR)),
+    birth_date    DATE,
     profile_photo VARCHAR(1024),
     email         VARCHAR(200) NOT NULL UNIQUE,
     created_at    TIMESTAMP    NULL DEFAULT CURRENT_TIMESTAMP,

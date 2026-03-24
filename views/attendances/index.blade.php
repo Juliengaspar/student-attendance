@@ -5,10 +5,10 @@
         <ol class="student-list">
             <?php foreach ($students as $student): ?>
             <li>
-                <input id="<?= $student['id'] ?>" type="checkbox" name="students[]"
-                       value="<?= $student['id'] ?>">
-                <label for="<?= $student['id'] ?>"><?= $student['first_name'] ?>
-                    &nbsp;<?= $student['last_name'] ?></label>
+                <input id="<?= $student->id ?>" type="checkbox" name="students[]"
+                       value="<?= $student->id ?>">
+                <label for="<?= $student->id ?>"><?= $student->first_name ?>
+                    &nbsp;<?= $student->last_name ?></label>
             </li>
             <?php endforeach; ?>
         </ol>
@@ -18,7 +18,6 @@
     <button class="randomStudentBtn hidden">Choisir un·e étudiant·e</button>
     <p class="currentStudent hidden"></p>
 </main>
-
 
 <?php include_once VIEWS_PATH . '/partials/nav.blade.php' ?>
 <script defer src="/assets/js/main.js"></script>

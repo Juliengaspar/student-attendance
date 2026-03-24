@@ -1,6 +1,5 @@
 /*** RESET GLOBAL + VARIABLES CSS ***/
 /* --- RESET GLOBAL --- */
-/*cmb+shift+R */
 *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
     all: unset;
     display: revert;
@@ -206,6 +205,16 @@ button:hover {
 
 div:has(>.action) {
     margin-top: var(--space-lg);
+}
+
+dl {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+dt {
+    font-weight: bold;
 }
 
 .action {

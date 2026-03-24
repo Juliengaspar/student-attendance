@@ -42,6 +42,7 @@ class Router
     private string $method;
     private array $action;
 
+
     //class qu'on devrais appelr pour la route
     public function __construct(
         private array $routes = [],//valeur par default si on passe le constrcuteur sans valeurs
@@ -49,8 +50,9 @@ class Router
     {
         //visiel pour chaque methosd
         $this->routes = include ROOT_PATH . '/routes.php';
-        $this->url = $_SERVER['REQUEST_URI'];
-        $this->method = $_SERVER['REQUEST_METHOD'];//methode de requête
+        //$this->url = $_SERVER['REQUEST_URI'];
+        $this->url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
     private function check_route(): array
