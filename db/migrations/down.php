@@ -1,31 +1,14 @@
 <?php
 
-include __DIR__ . '/../connexion.php';
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-function down(): void
-{
-    global $pdo;
+// 1. Inclure la connexion (qui charge l'autoloader et les helpers)
+require_once __DIR__ . '/../connexion.php';
 
-    try {
-        $stm = <<<sql
-DROP TABLE IF EXISTS attendances;
-DROP TABLE IF EXISTS student_group;
-DROP TABLE IF EXISTS session_group;
-DROP TABLE IF EXISTS sessions;
-DROP TABLE IF EXISTS `groups`;
-DROP TABLE IF EXISTS classrooms;
-DROP TABLE IF EXISTS aa_teacher;
-DROP TABLE IF EXISTS aas;
-DROP TABLE IF EXISTS ues;
-DROP TABLE IF EXISTS students;
-DROP TABLE IF EXISTS teachers;
-DROP TABLE IF EXISTS school_years;
-sql;
-        $pdo->exec($stm);
-        echo 'Drop all table -> done';
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-}
+// 2. IMPORTANT : Appeler la fonction définie dans helpers.php
+// pour initialiser la connexion à la base de données
+//db_connection();
 
-down();
+// 3. Maintenant Capsule est configuré et disponible
+Capsule::schema()->dropAllTables();
+

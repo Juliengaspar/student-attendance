@@ -9,7 +9,7 @@ class AttendanceController
     public function index(): void
     {
         $title = 'Prendre les présences';
-        $students = Student::getAllStudents();
+        $students = Student::all();
 
         view(
             'attendances.index',

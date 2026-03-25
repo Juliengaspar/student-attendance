@@ -1,6 +1,7 @@
 <?php
 
 use JetBrains\PhpStorm\NoReturn;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 if (!function_exists('dd')) {
     #[NoReturn]
@@ -22,37 +23,26 @@ if (!function_exists('env')) {
 }
 
 if (!function_exists('db_connection')) {
-    function db_connection(): ?PDO
+    function db_connection(): void
     {
-        $connection = env('DB_CONNECTION');
-        $host = env('DB_HOST');
-        $db_name = env('DB_DATABASE');
-        $db_port = env('DB_PORT');
-        $user = env('DB_USERNAME');
-        $pass = env('DB_PASSWORD');
-        $charset = env('DB_CHARSET');
+        $capsule = new \Illuminate\Database\Capsule\Manager();
 
-        $dsn = "$connection:host=$host;port=$db_port;dbname=$db_name;charset=$charset";
+        $capsule->addConnection([
+            'driver' => env('DB_CONNECTION'),
+            'host' => env('DB_HOST'),
+            'database' => env('DB_DATABASE'),
+            'port' => env('DB_PORT'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
+            'charset' => env('DB_CHARSET'),
+            'collation' => env('DB_COLLATION'),
+            'prefix' => '',
+        ]);
 
-        $options = [
-            //PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            ////PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,//ça à effetque lorsque on fais un fetch pour ==> c'est un tableaux asscociatif
-            //PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_BOTH,//les 2 formats sois en-> ou en ['']
-            ////PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,//format en ->
-            //PDO::ATTR_EMULATE_PREPARES => false,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-            PDO::ATTR_EMULATE_PREPARES => false,
-        ];
+        $capsule->setAsGlobal();
 
+        $capsule->bootEloquent();
 
-        try {
-            return new PDO($dsn, $user, $pass, $options);
-        } catch (PDOException $e) {
-            echo 'Erreur de connexion : ' . $e->getMessage();
-        }
-
-        return null;
     }
 }
 

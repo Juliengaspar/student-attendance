@@ -1,13 +1,33 @@
 <?php
 
-include __DIR__.'/../connexion.php';
+use Illuminate\Database\Capsule\Manager as Capsule;
 
+use App\Models\Student;
+
+include __DIR__ . '/../connexion.php';
+$students = require __DIR__ . '/data/students.php';
+//parcour cet array
+Capsule::table('students')->truncate();
+
+foreach ($students as $student) {
+    /*\App\Models\Student::created($student);
+    $s = new Student();
+    $s->first_name = $students['first_name'];
+    $s->last_name = $students['last_name'];
+    $s->email = $students['email'];
+    $s->matricule = $students['matricule'];
+    $s->save();
+    //ici pas de risque on sais se qu'on vas faire .*/
+    Student::create($student);
+}
+
+/*
 function run(): void
 {
     global $pdo;
 
     try {
-        $stm = <<<'sql'
+        $stm = <<<sql
 INSERT INTO school_years (name, starts_at, ends_at, is_current_year)
 VALUES ('2025-2026', '2025-09-15', '2026-06-30', TRUE);
 
@@ -354,3 +374,4 @@ sql;
 }
 
 run();
+*/

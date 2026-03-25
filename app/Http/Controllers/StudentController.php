@@ -9,7 +9,7 @@ class StudentController
     public function index(): void
     {
         $title = 'Tous les étudiants';
-        $students = Student::getAllStudents();
+        $students = Student::all();
 
         view(
             'students.index',
