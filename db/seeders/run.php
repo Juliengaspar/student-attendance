@@ -6,8 +6,8 @@ use App\Models\Student;
 
 include __DIR__ . '/../connexion.php';
 $students = require __DIR__ . '/data/students.php';
-//parcour cet array
-Capsule::table('students')->truncate();
+//parcour cet array d'ettudiants
+Capsule::table('students')->truncate();//crée des nouvelle donner dans la db avec laravel eloquen==> https://laravel.com/docs/13.x/eloquent#inserting-and-updating-models
 
 foreach ($students as $student) {
     /*\App\Models\Student::created($student);

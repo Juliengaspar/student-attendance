@@ -1,7 +1,6 @@
 <?php
 
 use JetBrains\PhpStorm\NoReturn;
-use Illuminate\Database\Capsule\Manager as Capsule;
 
 if (!function_exists('dd')) {
     #[NoReturn]

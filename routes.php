@@ -58,4 +58,31 @@ return [
             'show',
         ]
     ],
+
+    [
+        'url' => '/etudiant/edit',
+        'method' => 'get',
+        'action' => [
+            \App\Http\Controllers\StudentController::class,
+            'edit',
+        ]
+    ],
+
+    [
+        'url' => '/etudiant',
+        'method' => 'put',
+        'action' => [
+            \App\Http\Controllers\StudentController::class,
+            'update',
+        ]
+    ],
+
+    [
+        'url' => '/etudiant',
+        'method' => 'delete',
+        'action' => [
+            \App\Http\Controllers\StudentController::class,
+            'destroy',
+        ]
+    ],
 ];

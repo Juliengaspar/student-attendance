@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 //argument possibel poir les attrubute
 //comnetaire deoritecction ,dans les caracteristique de mas class il y a ça
+//proteger les donner envoyer
 #[Fillable([
     'first_name', 'last_name', 'email', 'matricule', 'birth_date', 'profile_photo'
 ])]

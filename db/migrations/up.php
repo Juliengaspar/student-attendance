@@ -3,8 +3,9 @@
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 include __DIR__ . '/../connexion.php';
-
+//suprimet la table students
 Capsule::schema()->drop('students');
+//crée la table students
 Capsule::schema()->create('students', function ($table) {
     $table->increments('id');
     $table->string('first_name');
@@ -13,8 +14,8 @@ Capsule::schema()->create('students', function ($table) {
     $table->string('matricule')->unique();
     $table->date('birth_date')->nullable();
     $table->string('profile_photo')->nullable();
-    $table->timestamps();
-    $table->softdeletes();
+    $table->timestamps();//created_at && delete_at ATTENTION DE PAS OUBLIER LE S
+    $table->softdeletes();//soft delect ==>
 });
 /*
 function up(): void
