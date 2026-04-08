@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-
 use App\Models\Student;
+use App\Models\Teachers;
+
 
 include __DIR__ . '/../connexion.php';
 $students = require __DIR__ . '/data/students.php';
+$teachers = require __DIR__ . '/data/Prof.php';
 //parcour cet array d'ettudiants
 Capsule::table('students')->truncate();//crée des nouvelle donner dans la db avec laravel eloquen==> https://laravel.com/docs/13.x/eloquent#inserting-and-updating-models
 
@@ -19,6 +21,11 @@ foreach ($students as $student) {
     $s->save();
     //ici pas de risque on sais se qu'on vas faire .*/
     Student::create($student);
+}
+Capsule::table('teachers')->truncate();//crée des nouvelle donner dans la db avec laravel eloquen==> https://laravel.com/docs/13.x/eloquent#inserting-and-updating-models
+
+foreach ($teachers as $teacher) {
+    Teachers::create($teacher);
 }
 
 /*

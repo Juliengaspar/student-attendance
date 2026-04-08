@@ -85,4 +85,52 @@ return [
             'destroy',
         ]
     ],
+    [
+        'url' => '/teacher',
+        'method' => 'get',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'index',
+        ]
+    ],
+    [
+        'url' => '/teacher/detail',
+        'method' => 'get',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'show',
+        ]
+    ],
+    [
+        'url' => '/teacher',
+        'method' => 'delete',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'delete',
+        ]
+    ],
+    [
+        'url' => '/teacher/modifie',
+        'method' => 'get',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'update',
+        ]
+    ],
+    [
+        'url' => '/teacher',
+        'method' => 'mysave',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'mysave',
+        ]
+    ],
+    [
+        'url' => '/teacher',
+        'method' => 'modifie',
+        'action' => [
+            \App\Http\Controllers\TeacherController::class,
+            'mysave',
+        ]
+    ],
 ];

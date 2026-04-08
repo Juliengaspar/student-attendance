@@ -17,6 +17,23 @@ Capsule::schema()->create('students', function ($table) {
     $table->timestamps();//created_at && delete_at ATTENTION DE PAS OUBLIER LE S
     $table->softdeletes();//soft delect ==>
 });
+
+if (Capsule::schema()->hasTable('teachers')) {//tester si la table existe
+    Capsule::schema()->drop('teachers');
+}
+Capsule::schema()->create('teachers', function ($table) {
+    $table->increments('id');
+    $table->string('first_name');
+    $table->string('last_name');
+    $table->string('email')->unique();
+    $table->string('phone');
+    $table->integer('age');
+    $table->timestamps();//created_at && delete_at ATTENTION DE PAS OUBLIER LE S
+    $table->softdeletes();//soft delect ==>
+});
+
+
+
 /*
 function up(): void
 {

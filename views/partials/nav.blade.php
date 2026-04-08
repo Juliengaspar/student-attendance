@@ -8,6 +8,8 @@
         </li>
         <li><a class="<?= $_SERVER['REQUEST_URI'] == '/etudiants' ? 'active' : '' ?>"
                href="/etudiants">Étudiants</a></li>
+        <li><a class="<?= $_SERVER['REQUEST_URI'] == '/teacher' ? 'active' : '' ?>"
+               href="/teacher">Teachers</a></li>
         <li><a class="<?= $_SERVER['REQUEST_URI'] == '/etudiants/create' ? 'active' : '' ?>"
                href="/etudiants/create">Crée un étudiant</a></li>
 
